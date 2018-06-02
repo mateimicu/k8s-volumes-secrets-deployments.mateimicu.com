@@ -1,0 +1,5 @@
+baseURL = "http://k8s-volumes-secrets-deployments.mateimicu.com"
+languageCode = "en-us"
+title = "mateimicu"
+theme = "hugo-theme-revealjs"
+enableRobotsTXT = true
