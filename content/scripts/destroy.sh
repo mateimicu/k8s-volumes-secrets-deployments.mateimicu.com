@@ -6,4 +6,9 @@ kubectl delete -f https://gist.githubusercontent.com/mateimicu/3b6c174cfb21e87cf
 kubectl delete secret mambu-secret2
 kubectl delete -f https://gist.githubusercontent.com/mateimicu/a9ddb794bf0cc62442d19eee3c2fd86c/raw/df7aa7a18b7a41c8ffa62c0e9754bc79414132eb/06_sercret_pod.yml
 kubectl delete -f https://gist.githubusercontent.com/mateimicu/e192589968d4876a6192712bc07e1bc5/raw/4514eedddeffc498cb0c09d1f9a3fadabf4da5b7/07_secret_service.yml
-
+kubectl delete configmap manual-config
+kubectl delete configmap file-config
+kubectl delete -f https://gist.githubusercontent.com/mateimicu/196396fab94b795d7c94575c4d2bfa1e/raw/467e05f46e9ad898b715abcb43d19d82a2ee7e6f/08_pod_config_map.yml
+kubectl delete -f https://gist.githubusercontent.com/mateimicu/b4892b0615d14f5c8d2bb1837f13ce17/raw/8589e7e3097ee404388a012fe2956b88713f1dca/09_configmap_service.yml
+kubectl delete -f https://gist.githubusercontent.com/mateimicu/d8ab1f30f34c1dd14f2256b2604f7688/raw/da34cb2604eaefd79bc610bb9f51d96da2facfcb/10_pod_env_vars.yml
+kubectl delete -f https://gist.githubusercontent.com/mateimicu/d4902c5a89d5742a12fe2809fdad8c09/raw/83d9b555d36fe19592546399a646be0e960d3b6b/11_configmap_env_service.yml
