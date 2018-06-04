@@ -17,16 +17,3 @@ spec:
   volumes:
   - name: counter-volume
     emptyDir: {}
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: service-emptydir-volume
-spec:
-  type: NodePort
-  selector:
-    type: python-fend
-  ports:
-  - protocol: TCP
-    port: 8180
-    targetPort: 8080
