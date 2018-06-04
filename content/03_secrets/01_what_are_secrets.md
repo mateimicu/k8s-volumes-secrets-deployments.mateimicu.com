@@ -1,6 +1,6 @@
 ---
 draft: false
-weight: 1800
+weight: 1790
 ---
 
 Small amount of information stored in a "in memory" database.
