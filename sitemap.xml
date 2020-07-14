@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/05_end/01_author/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/05_end/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/08_deploy/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/07_env_service/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/06_env_pod/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/05_deploy/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/04_service/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/03_pod/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/02_create_config_map_2/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/01_create_config_map_1/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/08_secrets_env/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/07_features_secrets/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/06_deploy_app/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/05_create_service/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/04_create_app/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/03_create_secrets/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/02_manually_create_secrets/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/01_what_are_secrets/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/05_what_happened/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/04_deploy/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/02_emptydir/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/03_emptydir_service/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/01_app/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/09_history_and_rollback/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/09_scaling/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/07_bad_deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/06_new_deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/05_service/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/04_pod_hash/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/03_what_it_created/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/02_deploy/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/01_deployments/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/</loc>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://k8s-volumes-secrets-deployments.mateimicu.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

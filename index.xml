@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mateimicu</title>
+    <link>http://k8s-volumes-secrets-deployments.mateimicu.com/</link>
+    <description>Recent content on mateimicu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://k8s-volumes-secrets-deployments.mateimicu.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/05_end/01_author/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/05_end/01_author/</guid>
+      <description>Author Matei-Marius Micu</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/08_deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/08_deploy/</guid>
+      <description> Deploy kubectl create -f https://gist.githubusercontent.com/mateimicu/d8ab1f30f34c1dd14f2256b2604f7688/raw/da34cb2604eaefd79bc610bb9f51d96da2facfcb/10_pod_env_vars.yml kubectl create -f https://gist.githubusercontent.com/mateimicu/d4902c5a89d5742a12fe2809fdad8c09/raw/83d9b555d36fe19592546399a646be0e960d3b6b/11_configmap_env_service.yml  kubectl exec -ti configmap-env-pod /bin/bash echo &amp;quot;$SPECIAL_LEVEL_KEY&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/07_env_service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/07_env_service/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/06_env_pod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/06_env_pod/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/05_deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/05_deploy/</guid>
+      <description> Deploy kubectl create -f https://gist.githubusercontent.com/mateimicu/196396fab94b795d7c94575c4d2bfa1e/raw/467e05f46e9ad898b715abcb43d19d82a2ee7e6f/08_pod_config_map.yml kubectl create -f https://gist.githubusercontent.com/mateimicu/b4892b0615d14f5c8d2bb1837f13ce17/raw/8589e7e3097ee404388a012fe2956b88713f1dca/09_configmap_service.yml  kubectl exec -ti configmap-file-pod ls /config kubectl exec -ti configmap-file-pod ls /config  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/04_service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/04_service/</guid>
+      <description> Deploy Pod  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/03_pod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/03_pod/</guid>
+      <description> Deploy Pod  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/02_create_config_map_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/02_create_config_map_2/</guid>
+      <description> From files TEMP=$(mktemp -d) echo &amp;quot;file_1a=file_val_1&amp;quot; &amp;gt;&amp;gt; &amp;quot;$TEMP/conf1&amp;quot; echo &amp;quot;file_1b=file_val_2&amp;quot; &amp;gt;&amp;gt; &amp;quot;$TEMP/conf1&amp;quot; echo &amp;quot;file_2a=file_val_1&amp;quot; &amp;gt;&amp;gt; &amp;quot;$TEMP/conf2&amp;quot; echo &amp;quot;file_2b=file_val_2&amp;quot; &amp;gt;&amp;gt; &amp;quot;$TEMP/conf2&amp;quot; ls &amp;quot;$TEMP&amp;quot; cat &amp;quot;$TEMP/conf1&amp;quot; cat &amp;quot;$TEMP/conf2&amp;quot;  kubectl create configmap file-config --from-file=&amp;quot;$TEMP&amp;quot;  kubectl get configmap kubectl describe configmap file-config kubectl get configmaps file-config -o yaml  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/01_create_config_map_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/04_configmaps/01_create_config_map_1/</guid>
+      <description> Manual creation kubectl create configmap manual-config --from-literal=manual.manual_1=manual_val_1 --from-literal=manual.manual_2=manual_val_2  kubectl get configmap kubectl describe configmap manual-config kubectl get configmaps manual-config -o yaml  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/08_secrets_env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/08_secrets_env/</guid>
+      <description>apiVersion: v1 kind: Pod metadata: name: test-secret labels: type: python-fend2 spec: containers: - image: matei10/hello-mambu-local-storage:0.0.8 name: python-fend2 env: - name: SECRET_PASSWORD valueFrom: secretKeyRef: name: mambu-secret key: password  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/07_features_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/07_features_secrets/</guid>
+      <description> Allow a specific path from a secret volumes: - name: second-secret secret: secretName: mambu-secret2 items: - key: password path: new-dir/new-password  file permisions decimal notation
+volumes: - name: second-secret secret: secretName: mambu-secret2 defaultMode: 511  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/06_deploy_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/06_deploy_app/</guid>
+      <description> Deploy kubectl create -f https://gist.githubusercontent.com/mateimicu/a9ddb794bf0cc62442d19eee3c2fd86c/raw/df7aa7a18b7a41c8ffa62c0e9754bc79414132eb/06_sercret_pod.yml kubectl create -f https://gist.githubusercontent.com/mateimicu/e192589968d4876a6192712bc07e1bc5/raw/4514eedddeffc498cb0c09d1f9a3fadabf4da5b7/07_secret_service.yml minikube service service-secret  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/05_create_service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/05_create_service/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/04_create_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/04_create_app/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/03_create_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/03_create_secrets/</guid>
+      <description>echo -n &#39;cloudy2010&#39; &amp;gt; password2  kubectl create secret generic mambu-secret2 --from-file=./password2  kubectl get secrets  kubectl describe secrets mambu-secret2  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/02_manually_create_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/02_manually_create_secrets/</guid>
+      <description>echo -n &#39;cloudy2010&#39; | base64 # =&amp;gt; Y2xvdWR5MjAxMA==   kubectl create -f https://gist.githubusercontent.com/mateimicu/3b6c174cfb21e87cfbf22e3eb0291ef5/raw/acdb468a148d67546e4432bb41f8787a06e875aa/05_secret.yml  kubectl get secrets  kubectl describe secrets mambu-secret  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/01_what_are_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/01_what_are_secrets/</guid>
+      <description>Small amount of information stored in a &amp;ldquo;in memory&amp;rdquo; database. It uses tmpfs.
+A default secret contains ca, token and namespace to access the API server.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/05_what_happened/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/05_what_happened/</guid>
+      <description> Where is the volume ? kubectl get pod test-emptydir -o json POD_UUID=$(kubectl get pod -n default test-emptydir -o &#39;jsonpath={.metadata.uid}&#39;) echo &amp;quot;UUID :$POD_UUID&amp;quot; minikube ssh sudo su cd /var/lib/kubelet/pods/  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/04_deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/04_deploy/</guid>
+      <description> Deploy kubectl create -f https://gist.githubusercontent.com/mateimicu/273ffee7d9e1cb9d4a1a45cfed037a97/raw/f93c74f9e96519fafa953a44f37ea6cd0f0a8dfe/03_empty_dir.yml kubectl create -f https://gist.githubusercontent.com/mateimicu/463c2706fe7404a18bc2343da90dbad1/raw/04561abc4597733376d16b4d429d5e50167bae85/04_empty_dir_service.yml minikube service service-emptydir-volume  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/02_emptydir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/02_emptydir/</guid>
+      <description> Volumes  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/03_emptydir_service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/03_emptydir_service/</guid>
+      <description> Service for our demo  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/01_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/02_volumes/01_app/</guid>
+      <description>#!/usr/bin/env python &amp;quot;&amp;quot;&amp;quot;Dummy project&amp;quot;&amp;quot;&amp;quot; from __future__ import print_function import socket import os import flask APP = flask.Flask(__name__) PATH = os.getenv(&amp;quot;COUNTER_PATH&amp;quot;) def get_counter(): &amp;quot;&amp;quot;&amp;quot;Get the counter from the local storage.&amp;quot;&amp;quot;&amp;quot; try: return int(open(PATH, &amp;quot;r&amp;quot;).read()) except Exception as exc: print(&amp;quot;Exception :&amp;quot;, exc) return 0 def inc_counter(): &amp;quot;&amp;quot;&amp;quot;Increment the local storage counter.&amp;quot;&amp;quot;&amp;quot; c = get_counter() with open(PATH, &amp;quot;w&amp;quot;) as fd: fd.write(str(c + 1)) @APP.route(&amp;quot;/&amp;quot;) def index(): &amp;quot;&amp;quot;&amp;quot;Return index.&amp;quot;&amp;quot;&amp;quot; inc_counter() return &amp;quot;[{}] Hello Mambu Labs {}&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/09_history_and_rollback/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/09_history_and_rollback/</guid>
+      <description> Deployment history kubectl rollout history deployment/hello-world  CHANGE-CAUSE empty ? kubectl set image deployment/hello-world frontend=bad/bad:2bad --record  kubectl rollout history deployment/hello-world  kubectl rollout history deployment/hello-world --revision=1  kubectl rollout undo deployment/hello-world --to-revision=2  Status kubectl rollout status deployment hello-world  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/09_scaling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/09_scaling/</guid>
+      <description> Scaling kubectl scale deployment hello-world --replicas=3  kubectl get pods  Autoscaling ? </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/07_bad_deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/07_bad_deployment/</guid>
+      <description> Bad Deployment kubectl set image deployment/hello-world frontend=bad/bad:bad kubectl rollout status deployment hello-world  kubectl get rs  kubectl get pods  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/06_new_deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/06_new_deployment/</guid>
+      <description> Deploy new version kubectl set image deployment/hello-world frontend=matei10/docker-hello-world:0.0.2  Check status kubectl rollout status deployment hello-world kubectl get rs  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/05_service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/05_service/</guid>
+      <description> Add a service over our  kubectl create -f https://gist.githubusercontent.com/mateimicu/1c7191ae666ca7aed7656f59e61d0937/raw/bfc14eab460bfd450150a6e2a4826016b1a7aff5/02_service.yml kubectl get service service-hello-world kubectl describe service service-hello-world minikube service service-hello-world  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/04_pod_hash/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/04_pod_hash/</guid>
+      <description>Pod Hash Used by replica sets
+kubectl describe rs &amp;quot;$REPLICA_SET&amp;quot;  kubectl get pods --show-labels=true  matchLabels Used by Deployments to monitor overall status (across multiple replica sets)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/03_what_it_created/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/03_what_it_created/</guid>
+      <description> What it did ? kubectl get rs REPLICA_SET=$(kubectl get rs | grep hello-world | awk &#39;{print $1}&#39;) kubectl describe rs &amp;quot;$REPLICA_SET&amp;quot;  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/02_deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/02_deploy/</guid>
+      <description> Deploy kubectl create -f https://gist.githubusercontent.com/mateimicu/8b6ff7d06e5413862438afc2c12c5357/raw/154b19718ec5c67d828d16c642700980c211f59a/01_deployment.yal  Check status kubectl rollout status deployment hello-world  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/01_deployments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/01_deployments/01_deployments/</guid>
+      <description>01_deployments.yml
+ </description>
+    </item>
+    
+  </channel>
+</rss>

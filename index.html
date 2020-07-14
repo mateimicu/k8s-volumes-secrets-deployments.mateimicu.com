@@ -1,0 +1,1064 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.31" />
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+  <meta name="application-name" content="mateimicu" />
+
+  <title>mateimicu</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha256-ol2N5Xr80jdDqxK0lte3orKGb9Ja3sOnpAUV7TTADmg=" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/night.min.css' />
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css' />
+
+  
+</head>
+<body>
+
+
+
+  <div class="reveal">
+    <div class="slides">
+      <section
+  id="/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h1 id="k8s">K8s</h1>
+
+<ul>
+<li>deployments</li>
+<li>volumes</li>
+<li>configmaps</li>
+<li>secrets</li>
+</ul>
+
+</section>
+
+
+      
+        <section>
+          <section
+  id="/01_deployments/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="what-are-deployments">What are deployments ?</h2>
+
+</section>
+
+
+          
+            <section
+  id="/01_deployments/01_deployments/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <p>01_deployments.yml</p>
+
+<script src="//gist.github.com/mateimicu/8b6ff7d06e5413862438afc2c12c5357.js"></script>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/02_deploy/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="deploy">Deploy</h3>
+
+<pre><code>kubectl create -f https://gist.githubusercontent.com/mateimicu/8b6ff7d06e5413862438afc2c12c5357/raw/154b19718ec5c67d828d16c642700980c211f59a/01_deployment.yal
+</code></pre>
+
+<h3 id="check-status">Check status</h3>
+
+<pre><code>kubectl rollout status deployment hello-world
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/03_what_it_created/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="what-it-did">What it did ?</h3>
+
+<pre><code>kubectl get rs
+REPLICA_SET=$(kubectl get rs | grep hello-world | awk '{print $1}')
+kubectl describe rs &quot;$REPLICA_SET&quot;
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/04_pod_hash/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="pod-hash">Pod Hash</h3>
+
+<p>Used by replica sets</p>
+
+<pre><code>kubectl describe rs &quot;$REPLICA_SET&quot;
+</code></pre>
+
+<pre><code>kubectl get pods --show-labels=true    
+</code></pre>
+
+<h4 id="matchlabels">matchLabels</h4>
+
+<p>Used by Deployments to monitor overall status (across multiple replica sets)</p>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/05_service/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="add-a-service-over-our">Add a service over our</h3>
+
+<script src="//gist.github.com/mateimicu/1c7191ae666ca7aed7656f59e61d0937.js"></script>
+
+<pre><code>kubectl create -f https://gist.githubusercontent.com/mateimicu/1c7191ae666ca7aed7656f59e61d0937/raw/bfc14eab460bfd450150a6e2a4826016b1a7aff5/02_service.yml
+kubectl get service service-hello-world
+kubectl describe service service-hello-world
+minikube service service-hello-world
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/06_new_deployment/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="deploy-new-version">Deploy new version</h3>
+
+<pre><code>kubectl set image deployment/hello-world frontend=matei10/docker-hello-world:0.0.2
+</code></pre>
+
+<h3 id="check-status">Check status</h3>
+
+<pre><code>kubectl rollout status deployment hello-world
+kubectl get rs
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/07_bad_deployment/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="bad-deployment">Bad Deployment</h3>
+
+<pre><code class="language-bash">kubectl set image deployment/hello-world frontend=bad/bad:bad
+kubectl rollout status deployment hello-world
+</code></pre>
+
+<pre><code class="language-bash">kubectl get rs
+</code></pre>
+
+<pre><code class="language-bash">kubectl get pods
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/09_history_and_rollback/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h5 id="deployment-history">Deployment history</h5>
+
+<pre><code class="language-bash">kubectl rollout history deployment/hello-world
+</code></pre>
+
+<h5 id="change-cause-empty">CHANGE-CAUSE empty ?</h5>
+
+<pre><code class="language-bash">kubectl set image deployment/hello-world frontend=bad/bad:2bad --record
+</code></pre>
+
+<pre><code class="language-bash">kubectl rollout history deployment/hello-world
+</code></pre>
+
+<pre><code class="language-bash">kubectl rollout history deployment/hello-world --revision=1
+</code></pre>
+
+<pre><code class="language-bash">kubectl rollout undo deployment/hello-world --to-revision=2
+</code></pre>
+
+<h5 id="status">Status</h5>
+
+<pre><code class="language-bash">kubectl rollout status deployment hello-world
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/01_deployments/09_scaling/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h5 id="scaling">Scaling</h5>
+
+<pre><code class="language-bash">kubectl scale deployment hello-world --replicas=3
+</code></pre>
+
+<pre><code class="language-bash">kubectl get pods
+</code></pre>
+
+<h6 id="autoscaling">Autoscaling ?</h6>
+
+</section>
+
+          
+        </section>
+      
+        <section>
+          <section
+  id="/02_volumes/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="volumes">Volumes</h2>
+
+<ul>
+<li>emptyDir</li>
+<li>gitRepo</li>
+<li>projected</li>
+<li>&hellip;.</li>
+</ul>
+
+</section>
+
+
+          
+            <section
+  id="/02_volumes/01_app/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <pre><code class="language-python">#!/usr/bin/env python
+&quot;&quot;&quot;Dummy project&quot;&quot;&quot;
+from __future__ import print_function
+
+import socket
+import os
+
+import flask
+
+
+APP = flask.Flask(__name__)
+PATH = os.getenv(&quot;COUNTER_PATH&quot;)
+
+
+def get_counter():
+    &quot;&quot;&quot;Get the counter from the local storage.&quot;&quot;&quot;
+    try:
+        return int(open(PATH, &quot;r&quot;).read())
+    except Exception as exc:
+        print(&quot;Exception :&quot;, exc)
+        return 0
+
+def inc_counter():
+    &quot;&quot;&quot;Increment the local storage counter.&quot;&quot;&quot;
+    c = get_counter()
+    with open(PATH, &quot;w&quot;) as fd:
+        fd.write(str(c + 1))
+
+@APP.route(&quot;/&quot;)
+def index():
+    &quot;&quot;&quot;Return index.&quot;&quot;&quot;
+    inc_counter()
+    return &quot;[{}] Hello Mambu Labs {}&quot;.format(
+        get_counter(),
+        str(socket.gethostname())
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    APP.run(host=&quot;0.0.0.0&quot;, port=8080, debug=True)
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/02_volumes/02_emptydir/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="volumes">Volumes</h2>
+
+<script src="//gist.github.com/mateimicu/273ffee7d9e1cb9d4a1a45cfed037a97.js"></script>
+
+</section>
+
+          
+            <section
+  id="/02_volumes/03_emptydir_service/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="service-for-our-demo">Service for our demo</h3>
+
+<script src="//gist.github.com/mateimicu/463c2706fe7404a18bc2343da90dbad1.js"></script>
+
+</section>
+
+          
+            <section
+  id="/02_volumes/04_deploy/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="deploy">Deploy</h2>
+
+<pre><code class="language-bash">kubectl create -f https://gist.githubusercontent.com/mateimicu/273ffee7d9e1cb9d4a1a45cfed037a97/raw/f93c74f9e96519fafa953a44f37ea6cd0f0a8dfe/03_empty_dir.yml
+kubectl create -f https://gist.githubusercontent.com/mateimicu/463c2706fe7404a18bc2343da90dbad1/raw/04561abc4597733376d16b4d429d5e50167bae85/04_empty_dir_service.yml
+minikube service service-emptydir-volume
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/02_volumes/05_what_happened/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h4 id="where-is-the-volume">Where is the volume ?</h4>
+
+<pre><code class="language-bash">kubectl get pod test-emptydir -o json
+POD_UUID=$(kubectl get pod -n default test-emptydir -o 'jsonpath={.metadata.uid}')
+echo &quot;UUID :$POD_UUID&quot;
+minikube ssh
+sudo su
+cd /var/lib/kubelet/pods/
+</code></pre>
+
+</section>
+
+          
+        </section>
+      
+        <section>
+          <section
+  id="/03_secrets/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="secrets">Secrets</h2>
+
+</section>
+
+
+          
+            <section
+  id="/03_secrets/01_what_are_secrets/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <p>Small amount of information stored in a &ldquo;in memory&rdquo; database.
+It uses <a href="https://en.wikipedia.org/wiki/Tmpfs">tmpfs</a>.</p>
+
+<hr />
+
+<p>A default secret contains ca, token and namespace to access the
+API server.</p>
+
+</section>
+
+          
+            <section
+  id="/03_secrets/02_manually_create_secrets/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <pre><code class="language-bash">echo -n 'cloudy2010' | base64 # =&gt; Y2xvdWR5MjAxMA==
+</code></pre>
+
+<script src="//gist.github.com/mateimicu/3b6c174cfb21e87cfbf22e3eb0291ef5.js"></script>
+
+<pre><code class="language-bash">kubectl create -f https://gist.githubusercontent.com/mateimicu/3b6c174cfb21e87cfbf22e3eb0291ef5/raw/acdb468a148d67546e4432bb41f8787a06e875aa/05_secret.yml
+</code></pre>
+
+<pre><code class="language-bash">kubectl get secrets
+</code></pre>
+
+<pre><code class="language-bash">kubectl describe secrets mambu-secret
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/03_secrets/03_create_secrets/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <pre><code class="language-bash">echo -n 'cloudy2010' &gt; password2
+</code></pre>
+
+<pre><code class="language-bash">kubectl create secret generic mambu-secret2 --from-file=./password2
+</code></pre>
+
+<pre><code class="language-bash">kubectl get secrets
+</code></pre>
+
+<pre><code class="language-bash">kubectl describe secrets mambu-secret2
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/03_secrets/04_create_app/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <script src="//gist.github.com/mateimicu/a9ddb794bf0cc62442d19eee3c2fd86c.js"></script>
+
+</section>
+
+          
+            <section
+  id="/03_secrets/05_create_service/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <script src="//gist.github.com/mateimicu/e192589968d4876a6192712bc07e1bc5.js"></script>
+
+</section>
+
+          
+            <section
+  id="/03_secrets/06_deploy_app/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="deploy">Deploy</h2>
+
+<pre><code class="language-bash">kubectl create -f https://gist.githubusercontent.com/mateimicu/a9ddb794bf0cc62442d19eee3c2fd86c/raw/df7aa7a18b7a41c8ffa62c0e9754bc79414132eb/06_sercret_pod.yml
+kubectl create -f https://gist.githubusercontent.com/mateimicu/e192589968d4876a6192712bc07e1bc5/raw/4514eedddeffc498cb0c09d1f9a3fadabf4da5b7/07_secret_service.yml
+minikube service service-secret
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/03_secrets/07_features_secrets/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h4 id="allow-a-specific-path-from-a-secret">Allow a specific path from a secret</h4>
+
+<pre><code class="language-bash"> volumes:
+  - name: second-secret
+    secret:
+      secretName: mambu-secret2
+      items:
+      - key: password
+        path: new-dir/new-password
+</code></pre>
+
+<h4 id="file-permisions">file permisions</h4>
+
+<p>decimal notation</p>
+
+<pre><code class="language-bash"> volumes:
+  - name: second-secret
+    secret:
+      secretName: mambu-secret2
+      defaultMode: 511
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/03_secrets/08_secrets_env/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: test-secret
+  labels:
+      type: python-fend2
+spec:
+  containers:
+  - image: matei10/hello-mambu-local-storage:0.0.8
+    name: python-fend2
+    env:
+      - name: SECRET_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mambu-secret
+            key: password
+</code></pre>
+
+</section>
+
+          
+        </section>
+      
+        <section>
+          <section
+  id="/04_configmaps/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="configmaps">ConfigMaps</h2>
+
+<p>? secrets ?</p>
+
+</section>
+
+
+          
+            <section
+  id="/04_configmaps/01_create_config_map_1/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="manual-creation">Manual creation</h3>
+
+<pre><code class="language-bash">kubectl create configmap manual-config --from-literal=manual.manual_1=manual_val_1 --from-literal=manual.manual_2=manual_val_2
+</code></pre>
+
+<pre><code class="language-bash">kubectl get configmap
+kubectl describe configmap manual-config
+kubectl get configmaps manual-config -o yaml
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/04_configmaps/02_create_config_map_2/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="from-files">From files</h3>
+
+<pre><code class="language-bash">TEMP=$(mktemp -d)
+
+echo &quot;file_1a=file_val_1&quot; &gt;&gt; &quot;$TEMP/conf1&quot;
+echo &quot;file_1b=file_val_2&quot; &gt;&gt; &quot;$TEMP/conf1&quot;
+
+echo &quot;file_2a=file_val_1&quot; &gt;&gt; &quot;$TEMP/conf2&quot;
+echo &quot;file_2b=file_val_2&quot; &gt;&gt; &quot;$TEMP/conf2&quot;
+
+ls &quot;$TEMP&quot;
+cat &quot;$TEMP/conf1&quot;
+cat &quot;$TEMP/conf2&quot;
+</code></pre>
+
+<pre><code class="language-bash">kubectl create configmap file-config --from-file=&quot;$TEMP&quot;
+</code></pre>
+
+<pre><code class="language-bash">kubectl get configmap
+kubectl describe configmap file-config
+kubectl get configmaps file-config -o yaml
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/04_configmaps/03_pod/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="deploy-pod">Deploy Pod</h3>
+
+<script src="//gist.github.com/mateimicu/196396fab94b795d7c94575c4d2bfa1e.js"></script>
+
+</section>
+
+          
+            <section
+  id="/04_configmaps/04_service/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="deploy-pod">Deploy Pod</h3>
+
+<script src="//gist.github.com/mateimicu/b4892b0615d14f5c8d2bb1837f13ce17.js"></script>
+
+</section>
+
+          
+            <section
+  id="/04_configmaps/05_deploy/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="deploy">Deploy</h3>
+
+<pre><code class="language-bash">kubectl create -f https://gist.githubusercontent.com/mateimicu/196396fab94b795d7c94575c4d2bfa1e/raw/467e05f46e9ad898b715abcb43d19d82a2ee7e6f/08_pod_config_map.yml
+kubectl create -f https://gist.githubusercontent.com/mateimicu/b4892b0615d14f5c8d2bb1837f13ce17/raw/8589e7e3097ee404388a012fe2956b88713f1dca/09_configmap_service.yml
+</code></pre>
+
+<pre><code class="language-bash">kubectl exec -ti configmap-file-pod ls /config
+kubectl exec -ti configmap-file-pod ls /config
+</code></pre>
+
+</section>
+
+          
+            <section
+  id="/04_configmaps/06_env_pod/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <script src="//gist.github.com/mateimicu/d8ab1f30f34c1dd14f2256b2604f7688.js"></script>
+
+</section>
+
+          
+            <section
+  id="/04_configmaps/07_env_service/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  <script src="//gist.github.com/mateimicu/d4902c5a89d5742a12fe2809fdad8c09.js"></script>
+
+</section>
+
+          
+            <section
+  id="/04_configmaps/08_deploy/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h3 id="deploy">Deploy</h3>
+
+<pre><code class="language-bash">kubectl create -f https://gist.githubusercontent.com/mateimicu/d8ab1f30f34c1dd14f2256b2604f7688/raw/da34cb2604eaefd79bc610bb9f51d96da2facfcb/10_pod_env_vars.yml
+kubectl create -f https://gist.githubusercontent.com/mateimicu/d4902c5a89d5742a12fe2809fdad8c09/raw/83d9b555d36fe19592546399a646be0e960d3b6b/11_configmap_env_service.yml
+</code></pre>
+
+<pre><code class="language-bash">kubectl exec -ti configmap-env-pod /bin/bash
+echo &quot;$SPECIAL_LEVEL_KEY&quot;
+</code></pre>
+
+</section>
+
+          
+        </section>
+      
+        <section>
+          <section
+  id="/05_end/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h2 id="bibliography">Bibliography</h2>
+
+<ul>
+<li><a href="https://kubernetes.io/docs">https://kubernetes.io/docs</a></li>
+</ul>
+
+</section>
+
+
+          
+            <section
+  id="/05_end/01_author/"
+
+  
+
+  
+
+  
+
+  
+>
+  
+
+  
+
+<h4 id="author">Author</h4>
+
+<p><a href="mateimicu.com">Matei-Marius Micu</a></p>
+
+</section>
+
+          
+        </section>
+      
+    </div>
+  </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js" integrity="sha256-ixSKHrWAL2k0mqVSRju9+to2/uZSEK9+kJRfdNBolG8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.min.js" integrity="sha256-r7x+4iKcDauI3cOr35pRCf1DsmoaRLuURBgs2yU7u64=" crossorigin="anonymous"></script>
+
+
+<script type="application/json" id="reveal-user-config">null</script>
+<script type="application/json" id="reveal-default-config">{"center":true}</script>
+
+<script type="application/javascript" src='/hugo-theme-revealjs.js'></script>
+
+
+</body>
+</html>
+

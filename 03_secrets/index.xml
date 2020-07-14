@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mateimicu</title>
+    <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/</link>
+    <description>Recent content on mateimicu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/08_secrets_env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/08_secrets_env/</guid>
+      <description>apiVersion: v1 kind: Pod metadata: name: test-secret labels: type: python-fend2 spec: containers: - image: matei10/hello-mambu-local-storage:0.0.8 name: python-fend2 env: - name: SECRET_PASSWORD valueFrom: secretKeyRef: name: mambu-secret key: password  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/07_features_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/07_features_secrets/</guid>
+      <description> Allow a specific path from a secret volumes: - name: second-secret secret: secretName: mambu-secret2 items: - key: password path: new-dir/new-password  file permisions decimal notation
+volumes: - name: second-secret secret: secretName: mambu-secret2 defaultMode: 511  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/06_deploy_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/06_deploy_app/</guid>
+      <description> Deploy kubectl create -f https://gist.githubusercontent.com/mateimicu/a9ddb794bf0cc62442d19eee3c2fd86c/raw/df7aa7a18b7a41c8ffa62c0e9754bc79414132eb/06_sercret_pod.yml kubectl create -f https://gist.githubusercontent.com/mateimicu/e192589968d4876a6192712bc07e1bc5/raw/4514eedddeffc498cb0c09d1f9a3fadabf4da5b7/07_secret_service.yml minikube service service-secret  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/05_create_service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/05_create_service/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/04_create_app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/04_create_app/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/03_create_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/03_create_secrets/</guid>
+      <description>echo -n &#39;cloudy2010&#39; &amp;gt; password2  kubectl create secret generic mambu-secret2 --from-file=./password2  kubectl get secrets  kubectl describe secrets mambu-secret2  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/02_manually_create_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/02_manually_create_secrets/</guid>
+      <description>echo -n &#39;cloudy2010&#39; | base64 # =&amp;gt; Y2xvdWR5MjAxMA==   kubectl create -f https://gist.githubusercontent.com/mateimicu/3b6c174cfb21e87cfbf22e3eb0291ef5/raw/acdb468a148d67546e4432bb41f8787a06e875aa/05_secret.yml  kubectl get secrets  kubectl describe secrets mambu-secret  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/01_what_are_secrets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://k8s-volumes-secrets-deployments.mateimicu.com/03_secrets/01_what_are_secrets/</guid>
+      <description>Small amount of information stored in a &amp;ldquo;in memory&amp;rdquo; database. It uses tmpfs.
+A default secret contains ca, token and namespace to access the API server.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  labels:
+    app: fend
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: fend
+  template:
+    metadata:
+      labels:
+        app: fend
+    spec:
+      containers:
+      - name: frontend
+        image: matei10/docker-hello-world:0.0.1
+        ports:
+        - containerPort: 8080
+

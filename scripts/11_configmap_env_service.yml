@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-configmap-env
+spec:
+  type: NodePort
+  selector:
+    type: python-config-env
+  ports:
+  - protocol: TCP
+    port: 8180
+    targetPort: 8080
